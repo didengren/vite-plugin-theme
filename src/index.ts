@@ -22,6 +22,7 @@ export interface ViteThemeOptions {
   fileName?: string;
   injectTo?: InjectTo;
   verbose?: boolean;
+  isProd: boolean; // 必须传递环境标识
 }
 
 import { createFileHash, formatCss } from './utils';
@@ -36,11 +37,11 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
   let clientPath = '';
   const styleMap = new Map<string, string>();
 
-  let extCssSet = new Set<string>();
+  const extCssSet = new Set<string>();
 
-  const emptyPlugin: Plugin = {
+  const emptyPlugin = {
     name: 'vite:theme',
-  };
+  } as Plugin;
 
   const options: ViteThemeOptions = Object.assign(
     {
@@ -49,6 +50,7 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
       fileName: 'app-theme-style',
       injectTo: 'body',
       verbose: true,
+      isProd: true, // 默认为 true，切换主题只在生产环境生效。
     },
     opt
   );
@@ -81,7 +83,7 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
     }),
     {
       ...emptyPlugin,
-      enforce: 'post',
+      enforce: options.isProd ? undefined : 'post', // 生产环境不设置 enforce；开发环境设置为 post，切换主题才会都生效。
       configResolved(resolvedConfig) {
         config = resolvedConfig;
         isServer = resolvedConfig.command === 'serve';
@@ -138,6 +140,7 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
         return null;
       },
 
+      // @ts-ignore
       async writeBundle() {
         const {
           root,
@@ -170,6 +173,7 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
                 `\t\t${chalk.dim((size / 1024).toFixed(2) + 'kb')}` +
                 '\n'
             );
+          // eslint-disable-next-line no-empty
           } catch (error) {}
         }
       },

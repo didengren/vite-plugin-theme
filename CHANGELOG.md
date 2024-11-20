@@ -1,3 +1,32 @@
+## 0.8.3 (2024-11-20)
+
+
+### Bug Fixes
+
+* 🐛 change antd-dark-theme.css injectTo head-prepend ([bd4ec12](https://github.com/didengren/vite-plugin-theme/commit/bd4ec12c027dca8fd3b57d647f888cbe22c9aec4))
+* **clean-css:** ensure the normal use of clean-css, fix [#4](https://github.com/didengren/vite-plugin-theme/issues/4) ([7aa8c1d](https://github.com/didengren/vite-plugin-theme/commit/7aa8c1d6507198542198601c7c647b240c44e440))
+* correct sourcemap ([fee4bb5](https://github.com/didengren/vite-plugin-theme/commit/fee4bb57fc2e15269e754db1daf46fa45ff3ddf4))
+* dark-theme public ([f089eea](https://github.com/didengren/vite-plugin-theme/commit/f089eea4857c89360df1dd6efcd98ee3bfb74eb5))
+* **darkTheme:** fix when config.base has protocal, generate wrong link path ([3d34b02](https://github.com/didengren/vite-plugin-theme/commit/3d34b025ab396be78c297005187bebcad3ae8ed2))
+* dev sourcemap ([625a61f](https://github.com/didengren/vite-plugin-theme/commit/625a61f0359a609195551690467ef9da20c41f80))
+* development environment executes wrong code ([dc494e7](https://github.com/didengren/vite-plugin-theme/commit/dc494e785bc20e6072dec4cbb4e12c2a7da62251))
+* disable esbuild ([831d91a](https://github.com/didengren/vite-plugin-theme/commit/831d91ae198c1a3f7f9f36b8dbf23a0f395f73ce))
+* ensure the colors are extracted correctly ([fc57ac0](https://github.com/didengren/vite-plugin-theme/commit/fc57ac0f6f5a252a1c6a281810d4b63573b535d6))
+* regexp ([6773fd9](https://github.com/didengren/vite-plugin-theme/commit/6773fd92bdae3c45a5c7b76726d75c530c3e7d85))
+* remove console.log ([8d7ae1d](https://github.com/didengren/vite-plugin-theme/commit/8d7ae1d9da0a424c9208d61db90cf6d107019809))
+
+
+### Features
+
+* add github ci ([f90b1e7](https://github.com/didengren/vite-plugin-theme/commit/f90b1e75fd597f0f1bb69172d3a10fb6a190fc21))
+* add loadMethod options ([d6cf1c8](https://github.com/didengren/vite-plugin-theme/commit/d6cf1c8d0c338a7475762d8cff27ae5d0fb28bc9))
+* add preloadLess option ([d3ebc6c](https://github.com/didengren/vite-plugin-theme/commit/d3ebc6c8d81c1fedda974a97a07027c09d656aed))
+* **client:** add customCssHandler options, fix [#5](https://github.com/didengren/vite-plugin-theme/issues/5) ([433ab05](https://github.com/didengren/vite-plugin-theme/commit/433ab055be9116df4996e92cdda9cc9239fded88))
+* support less dark theme ([bf66dce](https://github.com/didengren/vite-plugin-theme/commit/bf66dce09ed7a9e3a68608bad04a7f516c041f4c))
+* support sourcemap ([127f81d](https://github.com/didengren/vite-plugin-theme/commit/127f81d4efcc7181ab56e626df44f3c1ff80321c))
+
+
+
 ## [0.8.1](https://github.com/vbenjs/vite-plugin-theme/compare/v0.6.4...v0.8.1) (2021-05-29)
 
 

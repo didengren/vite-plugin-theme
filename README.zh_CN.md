@@ -1,4 +1,4 @@
-# vite-plugin-theme
+# @trinapower/vite-plugin-theme
 
 **中文** | [English](./README.md)
 
@@ -8,20 +8,14 @@
 
 在 vite 处理 css 后,动态解析 css 文本内符合插件配置的颜色值的时候,从所有输出的 css 文件提取指定的颜色样式代码。并创建一个仅包含颜色样式的`app-theme-style.css`文件，动态插入到指定的位置(默认 body 底部),然后将所使用的自定义样式/组件库样式颜色替换为新的颜色,以达到动态更改项目主题色的目的
 
-### 安装 (yarn or npm)
+### 安装 (pnpm)
 
 **node version:** >=12.0.0
 
 **vite version:** >=2.0.0
 
 ```
-yarn add vite-plugin-theme -D
-```
-
-或者
-
-```
-npm i vite-plugin-theme -D
+pnpm add @trinapower/vite-plugin-theme -D
 ```
 
 ## 使用
@@ -32,7 +26,7 @@ npm i vite-plugin-theme -D
 import { defineConfig, Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
-import { viteThemePlugin, mixLighten, mixDarken, tinycolor } from 'vite-plugin-theme';
+import { viteThemePlugin, mixLighten, mixDarken, tinycolor } from '@trinapower/vite-plugin-theme';
 
 export default defineConfig({
   plugins: [
@@ -59,10 +53,11 @@ export default defineConfig({
 | customerExtractVariable | `(css:string)=>string` | - | 自定义 css 匹配颜色抽取逻辑 |
 | fileName | `string` | `app-theme-style.hash.css` | 打包后输出的文件名 |
 | injectTo | `body`或`head`或`body-prepend` | `body` | 生产环境加载的 css 注入到那个标签体 |
+| isProd | `boolean` | true | 默认不用设置,效果就可以切换主题, 设置为 false 则生产环境禁止切换主题 |
 
 ## 示例项目
 
-[Vben Admin](https://github.com/anncwb/vue-vben-admin)
+[Vue3 Admin Slim](https://codeup.aliyun.com/62650a04c2b7347ce520e7e4/gsdefe/v3-admin-slim)
 
 ## 借鉴项目
 

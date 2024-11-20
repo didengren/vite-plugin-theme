@@ -32,6 +32,7 @@ export const lessLoader = (content, options: Less.Options = {}): Plugin => {
             loader: 'css',
             resolveDir: dir,
           };
+        // eslint-disable-next-line no-empty
         } catch (e) {}
       });
     },

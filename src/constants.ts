@@ -4,7 +4,7 @@ import { normalizePath } from 'vite';
 export const VITE_CLIENT_ENTRY = '/@vite/client';
 
 export const VITE_PLUGIN_THEME_CLIENT_ENTRY = normalizePath(
-  path.resolve(process.cwd(), 'node_modules/vite-plugin-theme/es/')
+  path.resolve(process.cwd(), 'node_modules/@trinapower/vite-plugin-theme/es/')
 );
 
 export const CLIENT_PUBLIC_ABSOLUTE_PATH = normalizePath(

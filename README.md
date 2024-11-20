@@ -1,4 +1,4 @@
-# vite-plugin-theme
+# @trinapower/vite-plugin-theme
 
 **English** | [中文](./README.zh_CN.md)
 
@@ -8,20 +8,14 @@ Vite plugin for dynamically changing the theme color of the interface
 
 After vite processes the css and dynamically analyzes the color value in the css text that matches the plug-in configuration, extract the specified color style code from all output css files. And create a `app-theme-style.css` file containing only color styles, dynamically insert it into the specified position (the bottom of the default body), and then replace the custom style/component library style color used with the new color, In order to achieve the purpose of dynamically changing the theme color of the project
 
-### Install (yarn or npm)
+### Install (pnpm)
 
 **node version:** >=12.0.0
 
 **vite version:** >=2.0.0
 
 ```
-yarn add vite-plugin-theme -D
-```
-
-or
-
-```
-npm i vite-plugin-theme -D
+pnpm add @trinapower/vite-plugin-theme -D
 ```
 
 ## Usage
@@ -32,7 +26,7 @@ npm i vite-plugin-theme -D
 import { defineConfig, Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
-import { viteThemePlugin, mixLighten, mixDarken, tinycolor } from 'vite-plugin-theme';
+import { viteThemePlugin, mixLighten, mixDarken, tinycolor } from '@trinapower/vite-plugin-theme';
 
 export default defineConfig({
   plugins: [
@@ -59,10 +53,11 @@ export default defineConfig({
 | customerExtractVariable | `(css:string)=>string` | - | Custom css matching color extraction logic |
 | fileName | `string` | `app-theme-style.hash.css` | File name output after packaging |
 | injectTo | `body` or `head` or `body-prepend` | `body` | The css loaded in the production environment is injected into the label body |
+| isProd | `boolean` | true | By default, Theme switching is enabled without configuration. Setting it to false will disable theme switching in the production environment. |
 
 ## Sample project
 
-[Vben Admin](https://github.com/vbenjs/vue-vben-admin)
+[Vue3 Admin Slim](https://codeup.aliyun.com/62650a04c2b7347ce520e7e4/gsdefe/v3-admin-slim)
 
 ## Reference project
 

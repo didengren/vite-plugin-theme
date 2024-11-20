@@ -76,7 +76,7 @@ function renderTheme() {
 
   const styleDom = getStyleDom(styleTagId);
   let html = styleDom.innerHTML;
-  for (let [id, css] of styleRenderQueueMap.entries()) {
+  for (const [id, css] of styleRenderQueueMap.entries()) {
     html += css;
     window[globalField].styleRenderQueueMap!.delete(id);
     window[globalField].styleIdMap!.set(id, css);
@@ -97,7 +97,7 @@ export async function replaceStyleVariables({
   const styleIdMap = getGlobalOptions('styleIdMap')!;
   const styleRenderQueueMap = getGlobalOptions('styleRenderQueueMap')!;
   if (!isProd) {
-    for (let [id, css] of styleIdMap.entries()) {
+    for (const [id, css] of styleIdMap.entries()) {
       styleRenderQueueMap.set(id, css);
     }
     renderTheme();
@@ -108,7 +108,7 @@ export async function replaceStyleVariables({
       const processCss = await replaceCssColors(cssText, colorVariables, customCssHandler);
       appendCssToDom(styleDom, processCss, injectTo);
     } catch (error) {
-      throw new Error(error);
+      throw new Error((error as Error).message);
     }
   }
 }
@@ -228,6 +228,7 @@ function debounce(delay: number, fn: (...arg: any[]) => any) {
   let timer;
   return function (...args) {
     // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const ctx = this;
     clearTimeout(timer);
     timer = setTimeout(function () {

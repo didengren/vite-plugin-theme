@@ -88,6 +88,7 @@ export function antdDarkThemePlugin(options: AntdDarkThemeOption): Plugin[] {
       antdDarkLoadLink: loadMethod === 'link',
     }),
     {
+      // @ts-ignore
       name: 'vite:antd-dark-theme',
       enforce: 'pre',
       configResolved(resolvedConfig) {
@@ -216,6 +217,7 @@ export function antdDarkThemePlugin(options: AntdDarkThemeOption): Plugin[] {
                 `\t\t${chalk.dim((size / 1024).toFixed(2) + 'kb')}` +
                 '\n'
             );
+          // eslint-disable-next-line no-empty
           } catch (error) {}
         }
       },
