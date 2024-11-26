@@ -18,6 +18,7 @@ export function getVariablesReg(colors: string[]) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function combineRegs(decorator = '', joinString = '', ...args: any[]) {
   const regString = args
     .map((item) => {
@@ -48,7 +49,7 @@ export function createFileHash() {
 export async function minifyCSS(css: string, config: ResolvedConfig) {
   const res = new CleanCSS({
     rebase: false,
-    ...config.build.cleanCssOptions,
+    // ...config.build.cleanCssOptions,
   }).minify(css);
 
   if (res.errors && res.errors.length) {

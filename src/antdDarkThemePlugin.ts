@@ -9,6 +9,7 @@ import { injectClientPlugin } from './injectClientPlugin';
 import { lessPlugin } from './preprocessor/less';
 
 export interface AntdDarkThemeOption {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   darkModifyVars?: any;
   fileName?: string;
   verbose?: boolean;
@@ -217,7 +218,7 @@ export function antdDarkThemePlugin(options: AntdDarkThemeOption): Plugin[] {
                 `\t\t${chalk.dim((size / 1024).toFixed(2) + 'kb')}` +
                 '\n'
             );
-          // eslint-disable-next-line no-empty
+          // eslint-disable-next-line no-empty, @typescript-eslint/no-unused-vars
           } catch (error) {}
         }
       },

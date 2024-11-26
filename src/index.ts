@@ -173,7 +173,7 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
                 `\t\t${chalk.dim((size / 1024).toFixed(2) + 'kb')}` +
                 '\n'
             );
-          // eslint-disable-next-line no-empty
+          // eslint-disable-next-line no-empty, @typescript-eslint/no-unused-vars
           } catch (error) {}
         }
       },

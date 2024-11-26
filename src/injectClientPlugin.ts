@@ -37,8 +37,8 @@ export function injectClientPlugin(
     },
 
     transformIndexHtml: {
-      enforce: 'pre',
-      async transform(html) {
+      order: 'pre',
+      async handler(html) {
         if (html.includes(CLIENT_PUBLIC_PATH)) {
           return html;
         }
