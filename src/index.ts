@@ -3,12 +3,14 @@ import path from 'path';
 import fs from 'fs-extra';
 import { debug as Debug } from 'debug';
 import { extractVariable, minifyCSS } from './utils';
+import { VITE_CLIENT_ENTRY, cssLangRE, cssVariableString, CLIENT_PUBLIC_PATH } from './constants';
+import { createFileHash, formatCss } from './utils';
+import chalk from 'chalk';
+import { injectClientPlugin } from './injectClientPlugin';
 
 export * from '../client/colorUtils';
 
 export { antdDarkThemePlugin } from './antdDarkThemePlugin';
-
-import { VITE_CLIENT_ENTRY, cssLangRE, cssVariableString, CLIENT_PUBLIC_PATH } from './constants';
 
 export type ResolveSelector = (selector: string) => string;
 
@@ -24,10 +26,6 @@ export interface ViteThemeOptions {
   verbose?: boolean;
   isProd: boolean; // 必须传递环境标识
 }
-
-import { createFileHash, formatCss } from './utils';
-import chalk from 'chalk';
-import { injectClientPlugin } from './injectClientPlugin';
 
 const debug = Debug('vite-plugin-theme');
 

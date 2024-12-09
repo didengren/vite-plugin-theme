@@ -52,10 +52,11 @@ export let darkCssIsReady = false;
     } as any;
   }
   setGlobalOptions('replaceStyleVariables', replaceStyleVariables);
-  if (!getGlobalOptions('defaultOptions')) {
-    // assign defines
-    setGlobalOptions('defaultOptions', colorPluginOptions);
-  }
+  // if (!getGlobalOptions('defaultOptions')) {
+  //   // assign defines
+  //   setGlobalOptions('defaultOptions', colorPluginOptions);
+  // }
+  setGlobalOptions('defaultOptions', colorPluginOptions);
 })();
 
 export function addCssToQueue(id: string, styleString: string) {
