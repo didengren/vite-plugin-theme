@@ -27,7 +27,7 @@ export interface ViteThemeOptions {
   isProd: boolean; // 必须传递环境标识
 }
 
-const debug = Debug('vite-plugin-theme');
+const debug = Debug('@trinapower/vite-plugin-theme');
 
 export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
   let isServer = false;

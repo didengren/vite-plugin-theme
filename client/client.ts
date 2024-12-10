@@ -39,7 +39,7 @@ const colorPluginOutputFileName = __COLOR_PLUGIN_OUTPUT_FILE_NAME__;
 const isProd = __PROD__;
 const colorPluginOptions = __COLOR_PLUGIN_OPTIONS__;
 
-const injectTo = colorPluginOptions.injectTo;
+const injectTo = colorPluginOptions ? colorPluginOptions.injectTo : 'body';
 const debounceThemeRender = debounce(200, renderTheme);
 
 export let darkCssIsReady = false;
@@ -52,11 +52,10 @@ export let darkCssIsReady = false;
     } as any;
   }
   setGlobalOptions('replaceStyleVariables', replaceStyleVariables);
-  // if (!getGlobalOptions('defaultOptions')) {
-  //   // assign defines
-  //   setGlobalOptions('defaultOptions', colorPluginOptions);
-  // }
-  setGlobalOptions('defaultOptions', colorPluginOptions);
+  if (!getGlobalOptions('defaultOptions')) {
+    // assign defines
+    setGlobalOptions('defaultOptions', colorPluginOptions);
+  }
 })();
 
 export function addCssToQueue(id: string, styleString: string) {

@@ -30,6 +30,15 @@ export function injectClientPlugin(
   return {
     name: 'vite:inject-vite-plugin-theme-client',
     enforce: 'pre',
+    config(config, env) {
+      config.define = {
+        ...config.define,
+        __COLOR_PLUGIN_OUTPUT_FILE_NAME__: undefined,
+        __PROD__: env.command === 'build',
+        __COLOR_PLUGIN_OPTIONS__: undefined,
+      };
+      return config;
+    },
     configResolved(resolvedConfig) {
       config = resolvedConfig;
       isServer = resolvedConfig.command === 'serve';
