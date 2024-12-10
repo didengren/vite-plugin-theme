@@ -1,3 +1,12 @@
+# [1.0.0-alpha.0](https://github.com/didengren/vite-plugin-theme/compare/v0.8.9...v1.0.0-alpha.0) (2024-12-10)
+
+
+### Features
+
+* 支持vite4以上版本并解决注入es/client.js文件时大写变量报错的问题 ([49c17ed](https://github.com/didengren/vite-plugin-theme/commit/49c17ed2a75faa71315926aaaf10f6335510fa34))
+
+
+
 ## 0.8.9 (2024-12-09)
 
 ### Bug Fixes
