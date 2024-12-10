@@ -1,6 +1,6 @@
 {
   "name": "@trinapower/vite-plugin-theme",
-  "version": "0.8.9",
+  "version": "1.0.0-alpha.0",
   "private": false,
   "description": "Vite plugin for dynamically changing the theme color of the interface",
   "main": "dist/index.js",
@@ -18,7 +18,6 @@
     "dev": " tsup src/index.ts --dts --format cjs,esm --watch",
     "dev:client": "tsc -w --p tsconfig.client.json",
     "build": "npm run clean  && tsup src/index.ts --dts --format cjs,esm && tsc -p tsconfig.client.json",
-    "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "example:dev": "npm -C example run serve",
     "example:build": "npm -C example run build",
     "prepublishOnly": "pinst --disable && npm run build",
@@ -29,7 +28,9 @@
     "test:watch": "jest --watch",
     "install:husky": "is-ci || husky install",
     "postinstall": "npm run install:husky",
-    "release": "bumpp --commit --push --tag && pnpm publish --access public",
+    "release": "bumpp --commit --no-push --no-tag",
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "publish": "pnpm publish --access public",
     "postpublish": "pinst --enable"
   },
   "keywords": [
