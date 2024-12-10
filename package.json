@@ -20,14 +20,18 @@
     "build": "npm run clean  && tsup src/index.ts --dts --format cjs,esm && tsc -p tsconfig.client.json",
     "example:dev": "npm -C example run serve",
     "example:build": "npm -C example run build",
+    "prepublishOnly": "pinst --disable && npm run build",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "lint:pretty": "pretty-quick --staged",
     "lint:eslint": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
+    "install:husky": "is-ci || husky install",
+    "_postinstall": "npm run install:husky",
     "release": "bumpp --commit --no-push --no-tag",
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "publish": "pnpm publish --access public"
+    "pub": "pnpm publish --access public",
+    "postpublish": "pinst --enable"
   },
   "keywords": [
     "vite"
