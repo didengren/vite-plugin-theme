@@ -1,7 +1,7 @@
 import { Plugin, ResolvedConfig } from 'vite';
 import path from 'path';
 import fs from 'fs-extra';
-import { debug as Debug } from 'debug';
+import { default as Debug } from 'debug';
 import { extractVariable, minifyCSS } from './utils';
 import { VITE_CLIENT_ENTRY, cssLangRE, cssVariableString, CLIENT_PUBLIC_PATH } from './constants';
 import { createFileHash, formatCss } from './utils';

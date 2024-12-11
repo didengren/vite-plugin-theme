@@ -2,7 +2,7 @@ import path from 'path';
 import { ResolvedConfig, normalizePath, Plugin } from 'vite';
 import { ViteThemeOptions } from '.';
 import { CLIENT_PUBLIC_PATH, CLIENT_PUBLIC_ABSOLUTE_PATH } from './constants';
-import { debug as Debug } from 'debug';
+import { default as Debug } from 'debug';
 
 const debug = Debug('vite:inject-vite-plugin-theme-client');
 
