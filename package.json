@@ -1,10 +1,17 @@
 {
   "name": "@trinapower/vite-plugin-theme",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "private": false,
   "description": "Vite plugin for dynamically changing the theme color of the interface",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
   "main": "dist/index.js",
-  "module": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -15,9 +22,9 @@
   ],
   "scripts": {
     "clean": "rimraf dist && rimraf es",
-    "dev": " tsup src/index.ts --dts --format cjs,esm --watch",
+    "dev": " tsup --watch",
     "dev:client": "tsc -w --p tsconfig.client.json",
-    "build": "npm run clean  && tsup src/index.ts --dts --format cjs,esm && tsc -p tsconfig.client.json",
+    "build": "npm run clean  && tsup && tsc -p tsconfig.client.json",
     "example:dev": "npm -C example run serve",
     "example:build": "npm -C example run build",
     "prepublishOnly": "pinst --disable && npm run build",
@@ -29,6 +36,7 @@
     "install:husky": "is-ci || husky install",
     "postinstall": "npm run install:husky",
     "release": "bumpp --commit --no-push --no-tag",
+    "commit": "git-cz",
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "pub": "pnpm publish --access public",
     "postpublish": "pinst --enable"
