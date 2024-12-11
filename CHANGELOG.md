@@ -1,3 +1,12 @@
+# [1.0.0-alpha.3](https://github.com/didengren/vite-plugin-theme/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2024-12-11)
+
+
+### Bug Fixes
+
+* 只针对esm构建输出物解决动态导入cjs模块的问题 ([6289e39](https://github.com/didengren/vite-plugin-theme/commit/6289e3909eecb2777581939ee3b151805d48ee21))
+
+
+
 # [1.0.0-alpha.2](https://github.com/didengren/vite-plugin-theme/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2024-12-11)
 
 
