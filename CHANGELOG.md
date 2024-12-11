@@ -1,3 +1,12 @@
+# [1.0.0-alpha.2](https://github.com/didengren/vite-plugin-theme/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2024-12-11)
+
+
+### Bug Fixes
+
+* 解决esm bundle文件中动态导入cjs模块所用require方法不存在报错的问题和package.json中添加exports后项目中无法引入es目录下文件的问题 ([ab9386f](https://github.com/didengren/vite-plugin-theme/commit/ab9386f08070fd524e49795da0734849c916d2b0))
+
+
+
 # [1.0.0-alpha.1](https://github.com/didengren/vite-plugin-theme/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2024-12-11)
 
 
