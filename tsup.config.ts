@@ -9,4 +9,8 @@ export default defineConfig(() => ({
     options.external = ['path', 'fs', 'fs-extra', 'os', 'lightningcss'];
     options.platform = 'node';
   },
+  banner: {
+    // https://github.com/egoist/tsup/discussions/505
+    js: `import {createRequire as __createRequire} from 'module';var require=__createRequire(import.meta.url);`,
+  },
 }));
