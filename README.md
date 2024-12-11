@@ -55,10 +55,6 @@ export default defineConfig({
 | injectTo | `body` or `head` or `body-prepend` | `body` | The css loaded in the production environment is injected into the label body |
 | isProd | `boolean` | true | By default, Theme switching is enabled without configuration. Setting it to false will disable theme switching in the production environment. |
 
-## Sample project
-
-[Vue3 Admin Slim](https://codeup.aliyun.com/62650a04c2b7347ce520e7e4/gsdefe/v3-admin-slim)
-
 ## Reference project
 
 - [webpack-theme-color-replacer](https://github.com/hzsrc/webpack-theme-color-replacer)

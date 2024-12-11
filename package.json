@@ -101,10 +101,6 @@
     "esbuild-plugin-alias": "^0.2.1",
     "tinycolor2": "^1.6.0"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "http://10.60.50.34:8081/repository/npm-snapshots/"
-  },
   "engines": {
     "node": "22.11.0",
     "pnpm": "^9.14.2"

@@ -55,10 +55,6 @@ export default defineConfig({
 | injectTo | `body`或`head`或`body-prepend` | `body` | 生产环境加载的 css 注入到那个标签体 |
 | isProd | `boolean` | true | 默认不用设置,效果就可以切换主题, 设置为 false 则生产环境禁止切换主题 |
 
-## 示例项目
-
-[Vue3 Admin Slim](https://codeup.aliyun.com/62650a04c2b7347ce520e7e4/gsdefe/v3-admin-slim)
-
 ## 借鉴项目
 
 - [webpack-theme-color-replacer](https://github.com/hzsrc/webpack-theme-color-replacer)
