@@ -1,3 +1,14 @@
+# [1.0.0-alpha.1](https://github.com/didengren/vite-plugin-theme/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2024-12-11)
+
+
+### Features
+
+* 1. 明确项目引入本包时import导入的是mjs文件 
+* 2. 解决构建esm模块中require动态导入外部模块的问题 
+* 3. 支持构建iife代码文件 ([aae95eb](https://github.com/didengren/vite-plugin-theme/commit/aae95eb1b5d93c31583d64a53fd12c3c65f31cf4))
+
+
+
 # [1.0.0-alpha.0](https://github.com/didengren/vite-plugin-theme/compare/v0.8.9...v1.0.0-alpha.0) (2024-12-10)
 
 
