@@ -1,6 +1,6 @@
 {
   "name": "@trinapower/vite-plugin-theme",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "private": false,
   "description": "Vite plugin for dynamically changing the theme color of the interface",
   "exports": {
