@@ -1,3 +1,12 @@
+# [1.0.0-alpha.4](https://github.com/didengren/vite-plugin-theme/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2024-12-13)
+
+
+### Bug Fixes
+
+* 修复vite配置的build.assetsDir的值非'assets'时打包报错的问题 ([3ad6ddb](https://github.com/didengren/vite-plugin-theme/commit/3ad6ddb53c0bc80bb84f9d5e4f045cd33adc900c))
+
+
+
 # [1.0.0-alpha.3](https://github.com/didengren/vite-plugin-theme/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2024-12-11)
 
 
