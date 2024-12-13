@@ -1,6 +1,6 @@
 {
   "name": "@trinapower/vite-plugin-theme",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "private": false,
   "description": "Vite plugin for dynamically changing the theme color of the interface",
   "exports": {
@@ -36,7 +36,7 @@
     "test:watch": "jest --watch",
     "install:husky": "is-ci || husky install",
     "postinstall": "npm run install:husky",
-    "gen-version": "bumpp --commit --no-push --no-tag",
+    "gen:version": "bumpp --commit --no-push --no-tag",
     "commit": "git-cz",
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "pub": "pnpm publish --access public",
