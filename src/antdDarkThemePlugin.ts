@@ -18,6 +18,11 @@ export interface AntdDarkThemeOption {
   extractCss?: boolean;
   preloadFiles?: string[];
   loadMethod?: 'link' | 'ajax';
+  /**
+   * 默认值与vite的build.assetsDir一致
+   * @default 'assets'
+   */
+  assetsDir?: string;
 }
 
 export function antdDarkThemePlugin(options: AntdDarkThemeOption): Plugin[] {
@@ -30,6 +35,7 @@ export function antdDarkThemePlugin(options: AntdDarkThemeOption): Plugin[] {
     extractCss = true,
     preloadFiles = [],
     loadMethod = 'link',
+    assetsDir = 'assets',
   } = options;
   let isServer = false;
   let needSourcemap = false;
@@ -87,11 +93,16 @@ export function antdDarkThemePlugin(options: AntdDarkThemeOption): Plugin[] {
       antdDarkCssOutputName: cssOutputName,
       antdDarkExtractCss: extractCss,
       antdDarkLoadLink: loadMethod === 'link',
+      assetsDir,
     }),
     {
       // @ts-ignore
       name: 'vite:antd-dark-theme',
       enforce: 'pre',
+      config(config) {
+        if (config.build) config.build.assetsDir = assetsDir;
+        return config;
+      },
       configResolved(resolvedConfig) {
         config = resolvedConfig;
         isServer = resolvedConfig.command === 'serve';
@@ -198,6 +209,7 @@ export function antdDarkThemePlugin(options: AntdDarkThemeOption): Plugin[] {
           extCssString = await minifyCSS(extCssString, config);
         }
         const cssOutputPath = path.resolve(root, outDir, assetsDir, cssOutputName);
+        fs.mkdirSync(path.dirname(cssOutputPath), { recursive: true });
         fs.writeFileSync(cssOutputPath, extCssString);
       },
 

@@ -17,6 +17,7 @@ export type ResolveSelector = (selector: string) => string;
 export type InjectTo = 'head' | 'body' | 'body-prepend';
 
 export interface ViteThemeOptions {
+  isProd: boolean; // 必须传递环境标识
   colorVariables: string[];
   wrapperCssSelector?: string;
   resolveSelector?: ResolveSelector;
@@ -24,7 +25,11 @@ export interface ViteThemeOptions {
   fileName?: string;
   injectTo?: InjectTo;
   verbose?: boolean;
-  isProd: boolean; // 必须传递环境标识
+  /**
+   * 默认值与vite的build.assetsDir一致
+   * @default 'assets'
+   */
+  assetsDir?: string;
 }
 
 const debug = Debug('@trinapower/vite-plugin-theme');
@@ -43,15 +48,16 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
 
   const options: ViteThemeOptions = Object.assign(
     {
+      isProd: true, // 默认为 true，切换主题只在生产环境生效。
       colorVariables: [],
       wrapperCssSelector: '',
       fileName: 'app-theme-style',
       injectTo: 'body',
       verbose: true,
-      isProd: true, // 默认为 true，切换主题只在生产环境生效。
     },
     opt
   );
+  options.assetsDir = options.assetsDir || 'assets';
 
   debug('plugin options:', options);
 
@@ -62,6 +68,7 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
     customerExtractVariable,
     fileName,
     verbose,
+    assetsDir,
   } = options;
 
   if (!colorVariables || colorVariables.length === 0) {
@@ -78,10 +85,15 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
     injectClientPlugin('colorPlugin', {
       colorPluginCssOutputName: cssOutputName,
       colorPluginOptions: options,
+      assetsDir,
     }),
     {
       ...emptyPlugin,
       enforce: options.isProd ? undefined : 'post', // 生产环境不设置 enforce；开发环境设置为 post，切换主题才会都生效。
+      config(config) {
+        if (config.build) config.build.assetsDir = options.assetsDir;
+        return config;
+      },
       configResolved(resolvedConfig) {
         config = resolvedConfig;
         isServer = resolvedConfig.command === 'serve';
@@ -152,6 +164,7 @@ export function viteThemePlugin(opt: ViteThemeOptions): Plugin[] {
           extCssString = await minifyCSS(extCssString, config);
         }
         const cssOutputPath = path.resolve(root, outDir, assetsDir, cssOutputName);
+        fs.mkdirSync(path.dirname(cssOutputPath), { recursive: true });
         fs.writeFileSync(cssOutputPath, extCssString);
       },
 

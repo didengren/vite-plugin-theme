@@ -16,12 +16,14 @@ export function injectClientPlugin(
     antdDarkCssOutputName,
     antdDarkExtractCss,
     antdDarkLoadLink,
+    assetsDir,
   }: {
     colorPluginOptions?: ViteThemeOptions;
     antdDarkCssOutputName?: string;
     colorPluginCssOutputName?: string;
     antdDarkExtractCss?: boolean;
     antdDarkLoadLink?: boolean;
+    assetsDir?: string;
   }
 ): Plugin {
   let config: ResolvedConfig;
@@ -78,10 +80,6 @@ export function injectClientPlugin(
         nid.includes(path.replace(/\//gi, '_'))
       ) {
         debug('transform client file:', id, code);
-
-        const {
-          build: { assetsDir },
-        } = config;
 
         const getOutputFile = (name?: string) => {
           return JSON.stringify(`${config.base}${assetsDir}/${name}`);
