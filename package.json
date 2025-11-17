@@ -24,6 +24,8 @@
     "README.zh_CN.md"
   ],
   "scripts": {
+    "prepublishOnly": "pinst --disable && npm run build",
+    "postpublish": "pinst --enable",
     "clean": "rimraf dist && rimraf es",
     "dev": " tsup --watch",
     "dev:client": "tsc -w --p tsconfig.client.json",
@@ -40,9 +42,7 @@
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "gen:version": "bumpp --commit --no-push --no-tag",
     "commit": "git-cz",
-    "prepublishOnly": "pinst --disable && npm run build",
-    "pub": "pnpm publish --access public",
-    "postpublish": "pinst --enable"
+    "pub": "pnpm publish --access public"
   },
   "keywords": [
     "vite"
