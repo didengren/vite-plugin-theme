@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* 修复宿主项目中引用/es模块路径报错的问题 ([3ad6ddb](https://github.com/didengren/vite-plugin-theme/commit/3ad6ddb53c0bc80bb84f9d5e4f045cd33adc900c))
+* 修复宿主项目中引用/es模块路径报错的问题 ([dee9ee2](https://github.com/didengren/vite-plugin-theme/commit/dee9ee2a1b764f32a300e19feb667e0e4666e0f3))
 
 
 
