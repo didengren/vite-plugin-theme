@@ -1,3 +1,12 @@
+# [1.0.0-alpha.5](https://github.com/didengren/vite-plugin-theme/compare/v1.0.0-alpha.3...v1.0.0-alpha.5) (2025-11-17)
+
+
+### Bug Fixes
+
+* 修复宿主项目中引用/es模块路径报错的问题 ([3ad6ddb](https://github.com/didengren/vite-plugin-theme/commit/3ad6ddb53c0bc80bb84f9d5e4f045cd33adc900c))
+
+
+
 # [1.0.0-alpha.4](https://github.com/didengren/vite-plugin-theme/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2024-12-13)
 
 
